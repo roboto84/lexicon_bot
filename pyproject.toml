@@ -1,0 +1,18 @@
+[tool.poetry]
+name = 'lexicon_bot'
+version = '0.1.0'
+description = 'Simple chat bot created to bridge information flow between the Lexicon project and the Wh00t messaging app'
+authors = ['roboto84 <7658704+roboto84@users.noreply.github.com>']
+
+[tool.poetry.dependencies]
+python = '^3.8'
+python-dotenv = '^0.15.0'
+wh00t-core = {git = 'https://github.com/roboto84/wh00t_core.git', rev = 'develop'}
+lexicon = {git = 'https://github.com/roboto84/lexicon.git', rev = 'develop'}
+
+[tool.poetry.dev-dependencies]
+pytest = '^5.2'
+
+[build-system]
+requires = ['poetry-core>=1.0.0']
+build-backend = 'poetry.core.masonry.api'
