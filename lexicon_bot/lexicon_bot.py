@@ -30,11 +30,8 @@ class LexiconBot:
         return True
 
     def __send_dictionary_data(self, search_word) -> None:
-        dictionary_payload: dict = self.get_data(search_word)
+        dictionary_payload: dict = self.lexicon.get_dictionary_def(search_word)
         self.socket_network.send_message('word_definition', str(dictionary_payload))
-
-    def get_data(self, search_word: str) -> dict:
-        return self.lexicon.get_dictionary_def(search_word)
 
 
 if __name__ == '__main__':

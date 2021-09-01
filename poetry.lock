@@ -65,15 +65,15 @@ python-versions = '^3.8'
 develop = false
 
 [package.dependencies]
-lexicon-collect = {git = 'https://github.com/roboto84/lexicon_collect.git', rev = 'develop'}
+lexicon-collect = {git = 'https://github.com/roboto84/lexicon_collect.git', rev = '636d473f'}
 pyenchant = "^3.2.0"
 python-dotenv = "^0.15.0"
 
 [package.source]
 type = "git"
 url = 'https://github.com/roboto84/lexicon.git'
-reference = '6ddca176'
-resolved_reference = "6ddca176ab8977da7b1baa7a9790790782117f3d"
+reference = 'b2bcc75b'
+resolved_reference = "b2bcc75b87ad3f45edc7d7c7feb3d1338a92057e"
 
 [[package]]
 name = "lexicon-collect"
@@ -91,8 +91,8 @@ requests = "^2.25.0"
 [package.source]
 type = "git"
 url = 'https://github.com/roboto84/lexicon_collect.git'
-reference = 'develop'
-resolved_reference = "466fb7d075d5592f5a984e5dd03216615df52537"
+reference = '636d473f'
+resolved_reference = "636d473f0eba008e690d18afc598333760a86de4"
 
 [[package]]
 name = "more-itertools"
@@ -238,7 +238,7 @@ resolved_reference = "193de69b03b314a47cc3df9397b072a1e3dc4ca4"
 [metadata]
 lock-version = "1.1"
 python-versions = '^3.8'
-content-hash = "a49bbe60281f95c46824631e568e7d28ff61f6de415bb5fb34f05e9ab2e73e61"
+content-hash = "f65b1203a16480617bc41eecd892bcea730555b90b56f1d2b522ce2140ae88b0"
 
 [metadata.files]
 atomicwrites = [
