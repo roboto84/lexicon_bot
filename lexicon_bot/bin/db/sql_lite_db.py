@@ -3,7 +3,7 @@ import logging.config
 import sqlite3
 from datetime import datetime
 from sqlite3 import Connection, Cursor
-from typing import Any, Callable
+from typing import Any
 
 
 class SqlLiteDb:
@@ -34,17 +34,11 @@ class SqlLiteDb:
         live_db_connection.close()
         self._logger.info(f'Saved and Closed DB "{self._db_location}" successfully')
 
-    def _check_db_state(self, table_names: list[str], create_db_schema: Callable[[Cursor], None]) -> None:
+    def _check_db_state(self, table_names: list[str]) -> bool:
         conn: Connection = self._db_connect()
         db_cursor: Cursor = conn.cursor()
         db_schema_good: bool = True
         for table_name in table_names:
             db_schema_good = db_schema_good and self._check_table_exists(db_cursor, table_name)
-
-        if db_schema_good:
-            self._logger.info(f'DB schema looks good')
-        else:
-            self._logger.info(f'Tables not found, generating DB schema')
-            create_db_schema(db_cursor)
-            self._logger.info(f'Tables have been created')
         self._db_close(conn)
+        return db_schema_good

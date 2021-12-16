@@ -1,5 +1,5 @@
 
-create_table_words = """CREATE TABLE WORDS(
+CREATE TABLE WORDS(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     time TEXT NOT NULL,
     word TEXT NOT NULL,
@@ -12,4 +12,4 @@ create_table_words = """CREATE TABLE WORDS(
     etymology TEXT NOT NULL,
     definitions TEXT NOT NULL,
     example TEXT NOT NULL
-);"""
+);
