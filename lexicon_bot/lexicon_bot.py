@@ -6,7 +6,7 @@ from typing import Any
 from dotenv import load_dotenv
 from lexicon.library.lexicon import Lexicon
 from bin.lexicon_bot_helper import LexiconBotHelper
-from bin.db.lexicon_db import LexiconDb
+from lexicon_core.library.db.lexicon_db import LexiconDb
 from wh00t_core.library.client_network import ClientNetwork
 
 
