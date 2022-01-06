@@ -27,9 +27,12 @@ class LexiconBot:
     def _receive_message_callback(self, package: dict) -> bool:
         if ('id' in package) and (package['id'] not in ['wh00t_server', 'lexicon_bot']) and ('message' in package):
             if 'category' in package and package['category'] == 'chat_message' and \
-                    isinstance(package['message'], str) and self._chat_key in package['message']:
+                    isinstance(package['message'], str) and package['message'].find(self._chat_key) == 0:
                 search_word: str = package['message'].replace(self._chat_key, '')
-                self._send_chat_data(search_word)
+                if search_word != '':
+                    self._send_chat_data(search_word)
+                else:
+                    self._socket_network.send_message('chat_message', f'Looks like you gave me an empty word 🤔')
         return True
 
     def _send_chat_data(self, search_word: str):
