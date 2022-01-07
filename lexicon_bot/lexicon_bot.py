@@ -4,6 +4,7 @@ import logging.config
 from typing import Any
 from dotenv import load_dotenv
 from lexicon.library.lexicon import Lexicon
+from lexicon_bot_utils import LexiconBotUtils
 from wh00t_core.library.client_network import ClientNetwork
 
 
@@ -12,7 +13,7 @@ class LexiconBot:
                  oxford_key: str, sql_lite_db_path: str):
         self._logger: logging.Logger = logging_object.getLogger(type(self).__name__)
         self._logger.setLevel(logging.INFO)
-        self._chat_key: str = '/lexi '
+        self._chat_key: str = '/lexi'
         self._lexicon: Lexicon = Lexicon(webster_key, oxford_app_id, oxford_key, sql_lite_db_path, logging_object)
         self._socket_network: ClientNetwork = ClientNetwork(socket_host, socket_port, 'lexicon_bot', 'app', logging)
 
@@ -28,17 +29,17 @@ class LexiconBot:
         if ('id' in package) and (package['id'] not in ['wh00t_server', 'lexicon_bot']) and ('message' in package):
             if 'category' in package and package['category'] == 'chat_message' and \
                     isinstance(package['message'], str) and package['message'].find(self._chat_key) == 0:
-                search_word: str = package['message'].replace(self._chat_key, '')
+                search_word: str = package['message'].replace(self._chat_key, '').rstrip()
                 if search_word != '':
                     self._send_chat_data(search_word)
                 else:
-                    self._socket_network.send_message('chat_message', f'Looks like you gave me an empty word 🤔')
+                    self._socket_network.send_message('chat_message', LexiconBotUtils.lexicon_help_message())
         return True
 
     def _send_chat_data(self, search_word: str):
         self._socket_network.send_message('chat_message', f'Ok, defining "{search_word}" 🤔')
         dictionary_summary: str = self._lexicon.definition_summary(self._lexicon.get_definition(search_word))
-        self._socket_network.send_message('chat_message', dictionary_summary)
+        self._socket_network.send_message('chat_message', f'\n{dictionary_summary}')
 
 
 if __name__ == '__main__':
