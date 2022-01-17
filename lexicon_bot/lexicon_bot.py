@@ -31,7 +31,7 @@ class LexiconBot:
                     isinstance(package['message'], str) and package['message'].find(self._chat_key) == 0:
                 search_word: str = package['message'].replace(self._chat_key, '').rstrip()
                 if search_word != '':
-                    self._send_chat_data(search_word)
+                    self._send_chat_data(search_word.strip())
                 else:
                     self._socket_network.send_message('chat_message', LexiconBotUtils.lexicon_help_message())
         return True
