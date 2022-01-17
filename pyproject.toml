@@ -8,7 +8,7 @@ authors = ['roboto84 <7658704+roboto84@users.noreply.github.com>']
 python = '^3.9'
 python-dotenv = '^0.15.0'
 wh00t-core = {git = 'https://github.com/roboto84/wh00t_core.git', tag = 'v0.4.1'}
-lexicon = {git = 'https://github.com/roboto84/lexicon.git', rev = 'eacf9ff7'}
+lexicon = {git = 'https://github.com/roboto84/lexicon.git', rev = '91e751a'}
 
 [tool.poetry.dev-dependencies]
 pytest = '^5.2'
