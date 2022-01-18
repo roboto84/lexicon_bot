@@ -73,8 +73,8 @@ willow-core = {git = 'https://github.com/roboto84/willow_core.git', rev = '59d8f
 [package.source]
 type = "git"
 url = 'https://github.com/roboto84/lexicon.git'
-reference = 'eacf9ff7'
-resolved_reference = "eacf9ff71fc62384af18963343624dea0addeefd"
+reference = 'de443b9'
+resolved_reference = "de443b983ecce8fd158ee6475d5e27eb8e2a431d"
 
 [[package]]
 name = "more-itertools"
@@ -238,7 +238,7 @@ resolved_reference = "59d8f44bce1bbda74e6e6d82a179a78f36cdfb3c"
 [metadata]
 lock-version = "1.1"
 python-versions = '^3.9'
-content-hash = "0e14ca5b142fb8e03d5e3ddd0d710f8606ac0e1d5d422dec9d874a03ecac6751"
+content-hash = "dd9ed17c52fa99fde0b5b15a0e3104c7a453c8d157a61f48f96c9a819372d3a7"
 
 [metadata.files]
 atomicwrites = [
