@@ -1,4 +1,4 @@
-# Air data sender
+# Lexicon data sender
 import os
 import logging.config
 from typing import Any
