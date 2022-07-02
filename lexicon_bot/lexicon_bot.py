@@ -37,9 +37,8 @@ class LexiconBot:
         return True
 
     def _send_chat_data(self, search_word: str):
-        self._socket_network.send_message('chat_message', f'Ok, defining "{search_word}" 🤔')
         dictionary_summary: str = self._lexicon.definition_summary(self._lexicon.get_definition(search_word))
-        self._socket_network.send_message('chat_message', f'\n{dictionary_summary}')
+        self._socket_network.send_message('chat_message', f'{dictionary_summary}')
 
 
 if __name__ == '__main__':
