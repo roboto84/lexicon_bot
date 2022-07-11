@@ -1,6 +1,6 @@
 [[package]]
 name = "atomicwrites"
-version = "1.4.0"
+version = "1.4.1"
 description = "Atomic file writes."
 category = "dev"
 optional = false
@@ -81,8 +81,8 @@ willow-core = {git = 'https://github.com/roboto84/willow_core.git', rev = '59d8f
 [package.source]
 type = "git"
 url = 'https://github.com/roboto84/lexicon.git'
-reference = 'ea4ba9f'
-resolved_reference = "ea4ba9fdba0cd4964b378a878cd25c567116f3fa"
+reference = 'a2c9dc9'
+resolved_reference = "a2c9dc93a71780720477fb464a1bdb4557c3a97b"
 
 [[package]]
 name = "packaging"
@@ -194,11 +194,11 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "urllib3"
-version = "1.26.9"
+version = "1.26.10"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
 
 [package.extras]
 brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
@@ -238,13 +238,10 @@ resolved_reference = "59d8f44bce1bbda74e6e6d82a179a78f36cdfb3c"
 [metadata]
 lock-version = "1.1"
 python-versions = '^3.10'
-content-hash = "1a812769d843acac75f690002f275fbef2ef07e74b2046b1299efea4f468ad10"
+content-hash = "0125bef967962048df99f0f1de98d81eb92783b19e5321d2dc5a2e61950063a5"
 
 [metadata.files]
-atomicwrites = [
-    {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
-    {file = "atomicwrites-1.4.0.tar.gz", hash = "sha256:ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"},
-]
+atomicwrites = []
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
     {file = "attrs-21.4.0.tar.gz", hash = "sha256:626ba8234211db98e869df76230a137c4c40a12d72445c45d5f5b716f076e2fd"},
@@ -308,9 +305,6 @@ toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
 ]
-urllib3 = [
-    {file = "urllib3-1.26.9-py2.py3-none-any.whl", hash = "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14"},
-    {file = "urllib3-1.26.9.tar.gz", hash = "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"},
-]
+urllib3 = []
 wh00t-core = []
 willow-core = []
