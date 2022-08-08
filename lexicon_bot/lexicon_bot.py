@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from lexicon.library.lexicon import Lexicon
 from lexicon_bot_utils import LexiconBotUtils
 from wh00t_core.library.client_network import ClientNetwork
+from wh00t_core.library.network_commons import NetworkCommons
 
 
 class LexiconBot:
@@ -15,6 +16,7 @@ class LexiconBot:
         self._logger.setLevel(logging.INFO)
         self._chat_key: str = '/lexi'
         self._lexicon: Lexicon = Lexicon(webster_key, oxford_app_id, oxford_key, sql_lite_db_path, logging_object)
+        self._network_commons: NetworkCommons = NetworkCommons()
         self._socket_network: ClientNetwork = ClientNetwork(socket_host, socket_port, 'lexicon_bot', 'app', logging)
 
     def run_bot(self) -> None:
@@ -27,18 +29,24 @@ class LexiconBot:
 
     def _receive_message_callback(self, package: dict) -> bool:
         if ('id' in package) and (package['id'] not in ['wh00t_server', 'lexicon_bot']) and ('message' in package):
-            if 'category' in package and package['category'] == 'chat_message' and \
+            if 'category' in package and package['category'] == self._network_commons.get_chat_message_category() and \
                     isinstance(package['message'], str) and package['message'].find(self._chat_key) == 0:
                 search_word: str = package['message'].replace(self._chat_key, '').rstrip()
                 if search_word != '':
                     self._send_chat_data(search_word.strip())
                 else:
-                    self._socket_network.send_message('chat_message', LexiconBotUtils.lexicon_help_message())
+                    self._socket_network.send_message(
+                        self._network_commons.get_chat_message_category(),
+                        LexiconBotUtils.lexicon_help_message()
+                    )
         return True
 
     def _send_chat_data(self, search_word: str):
         dictionary_summary: str = self._lexicon.definition_summary(self._lexicon.get_definition(search_word))
-        self._socket_network.send_message('chat_message', f'{dictionary_summary}')
+        self._socket_network.send_message(
+            self._network_commons.get_chat_message_category(),
+            f'{dictionary_summary}'
+        )
 
 
 if __name__ == '__main__':
