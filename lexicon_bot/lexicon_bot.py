@@ -10,12 +10,12 @@ from wh00t_core.library.network_commons import NetworkCommons
 
 
 class LexiconBot:
-    def __init__(self, logging_object: Any, socket_host: str, socket_port: int, webster_key: str, oxford_app_id: str,
-                 oxford_key: str, sql_lite_db_path: str):
+    def __init__(self, logging_object: Any, socket_host: str, socket_port: int, webster_key: str,
+                 sql_lite_db_path: str):
         self._logger: logging.Logger = logging_object.getLogger(type(self).__name__)
         self._logger.setLevel(logging.INFO)
         self._chat_key: str = '/lexi'
-        self._lexicon: Lexicon = Lexicon(webster_key, oxford_app_id, oxford_key, sql_lite_db_path, logging_object)
+        self._lexicon: Lexicon = Lexicon(webster_key, sql_lite_db_path, logging_object)
         self._network_commons: NetworkCommons = NetworkCommons()
         self._socket_network: ClientNetwork = ClientNetwork(socket_host, socket_port, 'lexicon_bot', 'app', logging)
 
@@ -59,8 +59,6 @@ if __name__ == '__main__':
         HOST_SERVER_ADDRESS: str = os.getenv('HOST_SERVER_ADDRESS')
         SOCKET_SERVER_PORT: int = int(os.getenv('SOCKET_SERVER_PORT'))
         MERRIAM_WEBSTER_API_KEY: str = os.getenv('MERRIAM_WEBSTER_API_KEY')
-        OXFORD_APP_ID: str = os.getenv('OXFORD_APP_ID')
-        OXFORD_APP_KEY: str = os.getenv('OXFORD_APP_KEY')
         SQL_LITE_DB: str = os.getenv('SQL_LITE_DB')
 
         print(f'\nLexicon data sender will now continuously run')
@@ -69,8 +67,6 @@ if __name__ == '__main__':
             HOST_SERVER_ADDRESS,
             SOCKET_SERVER_PORT,
             MERRIAM_WEBSTER_API_KEY,
-            OXFORD_APP_ID,
-            OXFORD_APP_KEY,
             SQL_LITE_DB
         )
         lexicon.run_bot()

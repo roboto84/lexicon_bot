@@ -5,10 +5,10 @@
 </div>
 
 ## About
-`lexicon_bot` is a simple chatbot created to bridge the information flow between the **Lexicon** project and the **wh00t** chat app.
+`lexicon_bot` is a simple chatbot created to bridge the information flow between the **Lexicon** project and the **Wh00t** chat app.
 
 ## Usage
-To see `lexicon_bot` used with **wh00t** on the `roboto_ui` go to the [roboto](https://github.com/roboto84/roboto) repo and follow its README.
+To see `lexicon_bot` used with **Wh00t** on the `bind_ui` go to the [Bind](https://github.com/roboto84/bind) repo and follow its README.
 
 <div align="center">
 	<img src="assets/lexicon_bot_1.png" title="lexicon_bot dark mode">
